@@ -11,8 +11,7 @@
 
 // Selector
 
-//  ? Asynchronus JS use karna hai in REDUX 
-
+//  ? Asynchronus JS use karna hai in RED
 
 incrementByVal:(state , action)=>{
     setTimeout(()=>{
