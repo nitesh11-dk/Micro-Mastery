@@ -5,9 +5,7 @@
 // Connect our store to our app, using Provider wrapping with Provider 
 
 // Slice (cartSlice) , using create slice and export redures and actions 
-
 //  link slice to app store , as a reducer of slice in app store 
-
 
 // Dispatch (action)
 
