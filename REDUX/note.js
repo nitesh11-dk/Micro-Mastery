@@ -26,3 +26,5 @@ export  const asyncFuncn = (amount)=>(dispatch)=>{
        dispatch(incrementByVal(amount));
     } , 2000)
 }
+
+
