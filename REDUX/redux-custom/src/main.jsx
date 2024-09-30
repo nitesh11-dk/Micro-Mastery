@@ -4,10 +4,13 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import appStore from './appStore/appstore.js'
+import { BrowserRouter } from 'react-router-dom'
+
 createRoot(document.getElementById('root')).render(
 
-  <Provider store={appStore}>
+<BrowserRouter><Provider store={appStore}>
       <App />
 
   </Provider>
+  </BrowserRouter>
 )
