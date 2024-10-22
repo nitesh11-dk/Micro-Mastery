@@ -41,34 +41,30 @@ a = "hello";
 var b;
 b = 12;
 b = "hello";
-// if(typeof b === 'string'){
-//     b.endsWith("l")// all string method 
+function userdata(obj) {
+    obj;
+}
+// ?  default value 
+// function userdata(obj:User ={name:"kushwaha" , age:12 , password:"123"}){    
+//     obj
 // }
-//  ? Void
-// agar function kuch return nahi karra hai to function ko void batayo 
-// function abcd() : void{
-//     console.log("hello");
+userdata({ name: "kushwaha", age: 12, password: "123" });
+function userdata2(obj) {
+}
+// intersection types
+// type val = number | string | boolean ; // -> here you are using | this is called as intersetion lly to or gate 
+//  here we are confused like interface and alias are 80% similarr ,and we can use them in therri place of each other
+//  but there is the key difference in inteface and aliases 
+// type zkj = number | string | boolean ;
+// type zkj = number | string | boolean ;
+// //  now type will give error 
+// // but in  interface they get merge 
+// interface Users2 {
+//     name:string
 // }
-// function abcd() : number{
-//     console.log("hello");
-//     return 1
+// interface Users2 {
+//     age:number
 // }
-// function abcd() : string{
-//     console.log("hello");
-//     return "hello";
-// }
-//  ? NUll
-// let bs :null ;
-// bs = 12; // error dedega so we can use unions 
-// let bs :string | null = null;
-// bs = "hello";
-// bs =34;
-// ? undefined 
-// ?Never ; yese kcuh code jo age ka code nahi chalane dege ya infinite loops to hum yunka retrun type bolte hai never 
-// function abcd2() : never{
-//     while(true){
-//         console.log("hello");
-//     }
-// }
-// abcd2()
-// console.log(23)
+// 2  difference 
+//  type ka kam type create karna ,string number ;
+//    interface is ued to crate the format or shape of the obejct 
