@@ -111,3 +111,6 @@ let user1 = new User("John", 30,{name:"hello", age:23});
 
 // Property 'name' is private and only accessible within class 'Dog'.
 // 107 console.log(dog.name);
+
+
+
