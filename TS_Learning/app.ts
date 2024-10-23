@@ -14,6 +14,7 @@
 
 
 // •Constructors
+// method -1 
 
 // class User {
 //      name:string
