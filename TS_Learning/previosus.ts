@@ -153,7 +153,7 @@ function userdata(obj:User){
 // function userdata(obj:User ={name:"kushwaha" , age:12 , password:"123"}){    
 //     obj
 // }
-userdata({name:"kushwaha" , age:12 , password:"123"});
+// userdata({name:"kushwaha" , age:12 , password:"123"});
 
 
 //? Extending interfaces
