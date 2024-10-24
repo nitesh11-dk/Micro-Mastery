@@ -12,8 +12,6 @@
 // •Parameter properties
 // •Getters and setters
 // •Static members
-// private,
-// protected)
 // •Abstract classes and methods
 
 
@@ -207,9 +205,6 @@ let uk1 = new UK("hello",12);
 // console.log(uk1.name);
 
 
-// •Static members
-// private,
-// protected)
 
 //  static members
 
@@ -225,6 +220,19 @@ let uk1 = new UK("hello",12);
 
 
 
+// •Abstract classes and methods
+class Payment{
+    constructor(protected amount:number, protected accountNo:number){     
+    }
+    isPaymentValid(){
+
+        if(this.amount >0 && this.accountNo >0){
+            return this.amount >0 ;
+        }
+    }
+}
+//  abstract class is essential  for creating clases , that is like the abstract  class has the base attributres and method , the abstract classes 
+//  abstact class sse kavi hum insstance nahi banate hai 
 
 
 
