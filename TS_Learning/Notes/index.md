@@ -27,7 +27,6 @@
 7. Intersection Type vs Union Type
 
 **Module 3**
-
 1. **Classes and Objects**
 2. **Constructors**
 3. **Access Modifiers: Public, Protected, Private**
@@ -37,3 +36,4 @@
 7. **Getters and Setters**
 8. **Static Members**
 9. **Abstract Classes and Methods** 
+---

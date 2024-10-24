@@ -247,5 +247,22 @@ let payment = new BankPayment(100, 123456);
 console.log(payment.isPaymentValid()); // Output: true
 ```
 
+---
 
+## **Classes and Objects Summary**
+
+1. **Class Definition**: Blueprint for creating objects with defined properties and methods.
+2. **Constructors**: Special methods for initializing objects automatically during creation.
+3. **Access Modifiers**:
+   - **Public**: Accessible everywhere.
+   - **Private**: Accessible only within the class.
+   - **Protected**: Accessible within the class and its subclasses.
+4. **Readonly Properties**: Immutable after initialization.
+5. **Optional Properties**: Marked with `?`, not mandatory.
+6. **Parameter Properties**: Directly define and initialize properties in the constructor.
+7. **Getters and Setters**: Control access and validation for properties.
+8. **Static Members**: Belong to the class, not the instance.
+9. **Abstract Classes**: Cannot be instantiated directly; subclasses must implement abstract methods.
+
+---
 
