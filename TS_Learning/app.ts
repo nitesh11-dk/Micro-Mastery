@@ -42,3 +42,25 @@ function abcd( name:string , cb:(a:string)=>void){
 // ? Rest parameters
 // function abcd4( ...nums:number[]){}    
 function abcd4( ...name:string[]){}    
+
+
+// Overloads
+// ts signature
+function abcd(a: string): void;
+function abcd(a: string, b: number): void;
+
+// Implementation
+function abcd(a: any, b?: any): void {
+    if (typeof a === "string" && b === undefined) {
+        console.log("hey");
+    } else if (typeof a === "string" && typeof b === "number") {
+        console.log("hey with number:", b);
+    } else {
+        throw new Error("something is wrong");
+    }
+}
+
+// Example usages
+abcd("hey"); // Logs: hey
+abcd("hey", 123); // Logs: hey with number: 123
+abcd("hey", "test"); // Throws error

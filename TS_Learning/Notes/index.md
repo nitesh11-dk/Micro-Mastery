@@ -37,3 +37,10 @@
 8. **Static Members**
 9. **Abstract Classes and Methods** 
 ---
+**Module 3**
+1. **Functions**  
+2. **Function** **Types**
+3. **Optional** **Parameters**
+4. **Default** **Parameters**
+5. **Rest** **Parameters**
+6. **Function** **Overloads**
