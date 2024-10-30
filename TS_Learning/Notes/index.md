@@ -37,10 +37,32 @@
 8. **Static Members**
 9. **Abstract Classes and Methods** 
 ---
-**Module 3**
+**Module 4**
 1. **Functions**  
 2. **Function** **Types**
 3. **Optional** **Parameters**
 4. **Default** **Parameters**
 5. **Rest** **Parameters**
 6. **Function** **Overloads**
+
+**Module 5**
+1. **Generics Overview**
+2. **Generic Functions**
+   - Using Generics in Functions
+   - Alternate Ways (Unions and `any`)
+3. **Generic Interfaces**
+   - Example of Generic Interface
+4.  **Generic Classes**
+   - Example of Generic Classes
+5.  **Type Assertion and Type Casting**
+   - Type Assertion
+   - Type Casting
+6.  **Non-Null Assertion Operator**
+7.  **Type Guards**
+   - Using `typeof` for Primitive Type Checks
+   - Using `instanceof` for Class Type Checks
+8.  **TypeScript Utility Types**
+   - `Partial`
+   - `Required`
+   - `Readonly` 
+
