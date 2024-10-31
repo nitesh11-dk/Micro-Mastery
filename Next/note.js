@@ -58,8 +58,15 @@
 
 
 
+// *   catch all route 
+// [...posts] or [[...posts]]
 
-// ? next js is frame work so 
+// so you  can use create folder like this [...posts] this will catch evey route written after /posts , like something like /posts/user/data   , or /posts/drata , and you can accessthingin params in page,jsx of posts 
+//  so suppot the route you have enterd is this 
+// http://localhost:3000/posts/data/sdfjhsfs/sdfksdjf
+//  so in prams you will get {posts:[ 'posts', 'data', 'sdfjhsfs', 'sdfksdjf' ]}
+//  so you use params.posts
+// agar tum chhaite  ko hii tumhe bar bar /posts metntion na karna pade tim direct /dta/sdfs/sdfs likh  sakte ho to app   folder lo naming [[...posts]] kardo so apko abb , /posts mahi likha pagega app direct  /data /sdfsd/ likh sakte ho 
 
-//  * component  name should be capital 
-//  * server component ko named export nahi karna hai deafult hii kanra hai 
+//  just listen agar apane / route par page.jsx bana hai appke yander hii apane [[...posts]] lkih rahe to error dedega qkii vo confisue hoga kii /page.jsx pass hair  hai ya /[[...posts]]/page.jsx pass hair hai , so try to create some liekthis /post/[[...posts]]/page.jsx  so that it will work
+
