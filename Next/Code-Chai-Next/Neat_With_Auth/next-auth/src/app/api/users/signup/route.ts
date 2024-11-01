@@ -3,6 +3,11 @@ import User from "@/models/userModel";
 import {NextRequest ,NextResponse} from 'next/server'
 import bcrypt from 'bcryptjs'
 import { sendEmail } from "@/utils/mailer";
+
+
+connectDb();
+
+
 export async function POST(request:NextRequest){
     try {
         
@@ -10,7 +15,7 @@ export async function POST(request:NextRequest){
         let {username , email, password} = reqBody;
 
         //validaton 
-        console.log(reqBody)
+        // console.log(reqBody)
 
            const user = await User.findOne({email});
            if(user){
@@ -18,7 +23,7 @@ export async function POST(request:NextRequest){
            }
 
                 const salt = bcrypt.genSaltSync(20);
-                const hashedPassword = bcrypt.hash(password, salt);
+                const hashedPassword = await bcrypt.hash(password, salt);
 
                 const newUser = new User({
                     username,
@@ -30,7 +35,7 @@ export async function POST(request:NextRequest){
                 const savedUser = await newUser.save();
                 console.log(savedUser);
 
-                //send verification email here
+
                   await sendEmail({email, emailType:"verify", userId:savedUser._id});
 
                   return NextResponse.json({
