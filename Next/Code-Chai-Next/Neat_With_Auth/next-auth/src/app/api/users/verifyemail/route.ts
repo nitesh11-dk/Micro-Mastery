@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
        const token = request.nextUrl.searchParams.get('token');
        console.log("Token:", token);
          
-       let user = User.findOne({verifyToken:token , verifyTokenExpiry:{$gt:Date.now()}})
+       let user:any = User.findOne({verifyToken:token , verifyTokenExpiry:{$gt:Date.now()}})
 
        if (!user) {
            return NextResponse.json({
