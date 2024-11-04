@@ -8,9 +8,11 @@ export async function POST(request: NextRequest) {
    try {
        // Get token from query parameters
        const token = request.nextUrl.searchParams.get('token');
-       console.log("Token:", token);
-         
-       let user:any = User.findOne({verifyToken:token , verifyTokenExpiry:{$gt:Date.now()}})
+       console.log("Token:", token); // Consider removing this for security
+
+    
+       const user = await User.findOne({ verifyToken: token, verifyTokenExpiry: { $gt: Date.now() } });
+
 
        if (!user) {
            return NextResponse.json({
@@ -19,20 +21,21 @@ export async function POST(request: NextRequest) {
            });
        }
 
-       user.isVerified = true ;
+       // Update user verification status
+       user.isVerified = true;
        user.verifyToken = undefined;
        user.verifyTokenExpiry = undefined;
-         await  user.save()
+
+    
+       await user.save();
+
        return NextResponse.json({
            message: "Email verified successfully",
            success: true
        });
-       
 
-    } catch (error) {
-        console.log("Error:", error);
-        return NextResponse.json({ error: "Invalid token" , status:400 });
-
+   } catch (error) {
+       console.error("Error:", error); // Better practice is to use console.error for errors
+       return NextResponse.json({ error: "Invalid token", status: 400 });
    }
-
 }

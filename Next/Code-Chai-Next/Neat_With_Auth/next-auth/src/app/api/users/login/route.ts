@@ -1,50 +1,53 @@
 import { connectDb } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
 connectDb();
 
 export async function POST(request: NextRequest) {
-   try {
-    const reqBody = await request.json();
-    let { email, password} = reqBody;
-    
-   
-let user =  await User.findOne({email:email});
+    try {
+        const reqBody = await request.json();
+        let { email, password } = reqBody;
 
-if(!user){
-    return NextResponse.json({error:"the user do not exist with this email" , success:false})
-}
+        let user = await User.findOne({ email: email });
 
-let  validPass = bcrypt.compare(password ,user.password) ; 
+        if (!user) {
+            return NextResponse.json({ error: "The user does not exist with this email", success: false });
+        }
 
-if(!validPass){
-    return NextResponse.json({error:"the credential is wrong " , success:false})
-}
+        let validPass = await bcrypt.compare(password, user.password);
 
-//   now we will generate jwt to store the data or token in cookie 
+        if (!validPass) {
+            return NextResponse.json({ error: "The credentials are wrong", success: false });
+        }
 
-let tokenData = {
-  id:user._id ,
-  username:user.username,
-  email:user.email 
-} ;
-let token = jwt.sign(tokenData , process.env.TOKEN_JWT! , {expiresIn:'1d'})
+        // Generate JWT to store the data or token in cookie 
+        if (!process.env.TOKEN_JWT) {
+            return NextResponse.json({ error: "JWT secret not defined", status: 500 });
+        }
 
-let response = NextResponse.json({
-    success:true,
-    message:"logged in successfully done"
-})
+        let tokenData = {
+            id: user._id,
+            username: user.username,
+            email: user.email
+        };
 
-response.cookies.set("token",token,{
-    httpOnly:true
-})
+        let token = jwt.sign(tokenData, process.env.TOKEN_JWT, { expiresIn: '1d' });
 
-    } catch (error) {
-        console.log("Error:", error);
-        return NextResponse.json({ error: "Invalid token" , status:400 });
+        let response = NextResponse.json({
+            success: true,
+            message: "Logged in successfully"
+        });
 
-   }
+        response.cookies.set("token", token, {
+            httpOnly: true
+        });
 
+        return response; 
+    } catch (error:any) {
+        console.log("Error:", error.message); 
+        return NextResponse.json({ error: "An error occurred", status: 400 });
+    }
 }
