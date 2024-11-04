@@ -27,6 +27,10 @@ export default Users;
 4. **Edge Functions**:
    - If your Next.js application is deployed on the Edge (for instance, using Vercel's Edge Functions), be aware of the limitations regarding database connections. Each edge function is stateless, so you'll need to connect to the database inside each request handler instead of maintaining a persistent connection.
 
+MONGO_URI='mongodb+srv://nitesh_dk:rakesh114@nitesh.zownidz.mongodb.net/?retryWrites=true&w=majority&appName=NItesh'
 
+TOKEN_JWT='EFGJKFGJKLN3894574398875,DFMSGNGKM5289'
+
+DOMAIN='http://localhost:3000'
 
  
