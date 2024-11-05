@@ -28,3 +28,9 @@ export const config = {
     '/profile'
   ],
 }
+
+// MONGO_URI='mongodb+srv://nitesh_dk:rakesh114@nitesh.zownidz.mongodb.net/?retryWrites=true&w=majority&appName=NItesh'
+
+// TOKEN_JWT='EFGJKFGJKLN3894574398875,DFMSGNGKM5289'
+
+// DOMAIN='http://localhost:3000'
