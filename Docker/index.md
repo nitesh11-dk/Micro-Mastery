@@ -87,4 +87,62 @@
 
 
 
+## Docker Container Commands
 
+1. **Running a Container with a Volume**  
+   Use the following command to run a container with a volume:
+   ```bash
+   docker run -it -v myvolume:/my-app/ nitesh:v1
+   ```
+   - **Explanation**: `-v myvolume:/my-app/` mounts a Docker volume named `myvolume` to the `/my-app/` directory in the container.
+   - Ensure `/my-app/` is the working directory when creating the image file.
+
+2. **Starting an Existing Container**  
+   Start an existing container using:
+   ```bash
+   docker start <container_name_or_id>
+   ```
+   - To attach to the terminal of a running container, use:
+     ```bash
+     docker attach <container_name_or_id>
+     ```
+   - **Note**: Ensure the container is running before using `docker attach`.
+
+## Docker Volumes
+
+1. **Listing Docker Volumes**
+   - To see a list of Docker volumes:
+     ```bash
+     docker volume ls
+     ```
+   - Use `--help` with `docker volume` for additional options.
+
+2. **Bind Mounts**
+   - **Definition**: A bind mount lets you link a local directory or file to a directory in the container.
+   - **Benefit**: Changes made in the local directory are immediately reflected in the container.
+   
+   Example:
+   ```bash
+   docker run -it --rm -v /local/path/to/file.txt:/container/path/file.txt nitesh:v1
+   ```
+   - **Explanation**: The local file `/local/path/to/file.txt` is mounted to `/container/path/file.txt` in the container.
+
+   Mounting an entire folder:
+   ```bash
+   docker run -it --rm -v /home/nitesh-dk/LNX-NITESH-DK/Micro-Mastery/Docker/python/:/my-app/ nitesh:v1
+   ```
+
+3. **Ignoring Files with .dockerignore**
+   - The `.dockerignore` file works like `.gitignore`, specifying files and folders to ignore when building Docker images.
+
+## Connecting from a Container to the Host Database
+
+- To access a localhost database from a container, use `host.docker.internal` as the host address in your code.
+  - Example in Python or JavaScript:
+    ```python
+    host = "host.docker.internal"
+    ```
+
+This configuration allows your containerized application to connect to services running on the host machine (e.g., a local database) without additional network setup.
+
+---
