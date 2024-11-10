@@ -128,4 +128,3 @@ Error: Route "/users/profile/[name]" used `params.name`. `params` should be awai
 - **SEO Optimization**: Leverage server-side rendering for improved SEO.
 - **Server components must use default exports**.
 
----
