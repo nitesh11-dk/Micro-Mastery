@@ -9,7 +9,7 @@ services:
       - app-network
 
   node-app:
-    image: nk:v1  
+    image: nk:v1 
     container_name: node-app
     ports:
       - "3000:3000"

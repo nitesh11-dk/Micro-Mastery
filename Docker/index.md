@@ -204,5 +204,57 @@ const mongoURL = 'mongodb://mongo-db:27017/mydatabase';
 - **URI hostname (`mongo-db` in this case) should match the MongoDB container name** in the network.
 
 
+### Docker Compose - Default Network
 
-##Docker Compose
+- **Default Network**: When you create a `docker-compose.yml` file, Docker Compose automatically creates a new network for all services.
+- **Services on Same Network**: All services (containers) defined in the `docker-compose.yml` file are automatically connected to this default network, allowing them to communicate with each other by their container names.
+
+**Example**:
+If you have two services, `mongo-db` and `node-app`, they will both be connected to the default network created by Docker Compose, and you can refer to `mongo-db` in `node-app` as `mongo-db` in the connection string.
+
+docker-compose -f docker-compose.yaml up -d  , run the compose in deteahcmode 
+docker-compose -f docker-compose.yaml up down  , stop the compose 
+docker-compose -f docker-compose.yaml up down  -v , delte al the nwtwork and the volumes 
+
+
+### Volume Binding in Docker Compose
+
+**Volume Binding** in Docker Compose allows you to persist data across container restarts and share files between your host system and the container. It ensures that data (e.g., database files, logs) can be stored outside of the container, making it persistent and easier to access.
+
+#### Syntax for Volume Binding:
+```yaml
+services:
+  service-name:
+    volumes:
+      - ./host/path:/container/path
+```
+
+- `./host/path`: Path on the host system (your machine).
+- `/container/path`: Path inside the container.
+
+### Example of Volume Binding in Docker Compose
+
+```yaml
+version: '3'
+services:
+  mongo-db:
+    image: mongo
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db  # Host data folder mapped to container's MongoDB data folder
+  node-app:
+    image: node-app
+    container_name: node-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/app  # Host app folder mapped to container's app folder
+```
+
+### Key Points:
+- **Persistence**: The `mongo-db` container stores its database in the `./data` folder on your host, ensuring data is not lost when the container restarts.
+- **File Sharing**: The `node-app` container can access files from the `./app` folder on your host system.
+
+
