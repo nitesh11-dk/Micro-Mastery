@@ -169,3 +169,40 @@ Working with multiple containers
 - `mongo-db` is the actual MongoDB container.
 - `mongo` is the alias used to connect to it from `node-app`.
 - **The alias in `--link` and the MongoDB URI (`mongodb://mongo:27017/mydatabase`) should match**.
+
+ 
+##docker network 
+
+ If you’re using Docker networks instead of `--link`, you’ll set up a network and connect both containers to it. The advantage is that Docker networks provide more flexibility and are generally preferred over `--link`, which is deprecated.
+
+### Steps
+
+1. **Create a Docker network**:
+   ```bash
+   docker network create my-network
+   ```
+
+2. **Start MongoDB container on the network**:
+   ```bash
+   docker run -d --name mongo-db --network my-network -p 27017:27017 mongo
+   ```
+
+3. **Start Node.js container on the same network**:
+   ```bash
+   docker run --name node-app --network my-network -p 3000:7000 nk:v1
+   ```
+
+### MongoDB URI
+In your Node.js application, use the MongoDB URI with the **container name** as the host:
+```javascript
+const mongoURL = 'mongodb://mongo-db:27017/mydatabase';
+```
+
+### Key Points
+- By using Docker networks, both containers can communicate using their **container names** as hostnames.
+- **No need for `--link`**; Docker automatically manages DNS within the network.
+- **URI hostname (`mongo-db` in this case) should match the MongoDB container name** in the network.
+
+
+
+##Docker Compose

@@ -6,8 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public')); // Serve static files (like CSS, JS)
 
-// MongoDB connection
-const mongoURL = 'mongodb://mongo:27017/mydatabase'; // MongoDB container connection
+// MongoDB connection using environment variable
+const mongoURL = process.env.MONGO_URL || 'mongodb://mongo-db:27017/mydatabase'; // Default to local MongoDB if not set
 mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch((error) => console.error('MongoDB connection error:', error));
@@ -58,7 +58,7 @@ app.post('/add-user', async (req, res) => {
     res.send({ success: true, username });
 });
 
-// Start the server
+// Start the server with environment variable
 const PORT = process.env.PORT || 7000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
