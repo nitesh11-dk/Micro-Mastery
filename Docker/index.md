@@ -129,7 +129,7 @@
 
    Mounting an entire folder:
    ```bash
-   docker run -it --rm -v /home/nitesh-dk/LNX-NITESH-DK/Micro-Mastery/Docker/python/:/my-app/ nitesh:v1
+   docker run -it --rm -v /home/nitesh-dk/LNX-NITESH-DK/Micro-Mastery/Docker/:/my-app/ nk:v1
    ```
 
 3. **Ignoring Files with .dockerignore**
@@ -146,3 +146,26 @@
 This configuration allows your containerized application to connect to services running on the host machine (e.g., a local database) without additional network setup.
 
 ---
+
+
+Working with multiple containers 
+
+
+1. **Start MongoDB container**:
+   ```bash
+   docker run -d --name mongo-db -p 27017:27017 mongo
+   ```
+   - Name: `mongo-db`
+   - Port: `27017` (default MongoDB port)
+
+2. **Start Node.js container and link to MongoDB**:
+   ```bash
+   docker run --name node-app --link mongo-db:mongo -p 3000:7000 nk:v1
+   ```
+   - Link `mongo-db` container with alias `mongo`.
+   - Node.js app connects to MongoDB using `mongodb://mongo:27017/mydatabase`.
+
+### Key Points:
+- `mongo-db` is the actual MongoDB container.
+- `mongo` is the alias used to connect to it from `node-app`.
+- **The alias in `--link` and the MongoDB URI (`mongodb://mongo:27017/mydatabase`) should match**.
