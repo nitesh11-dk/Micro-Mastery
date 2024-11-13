@@ -34,3 +34,4 @@ export const config = {
 // TOKEN_JWT='EFGJKFGJKLN3894574398875,DFMSGNGKM5289'
 
 // DOMAIN='http://localhost:3000'
+
