@@ -21,11 +21,25 @@ l2.append("Oolang")
 if "Oolang" in l2:
     print('Yes')
 
-    #  pop() method
-    #  remove method
-    #  insert method
-    # copy() method 
+    # pop() method
+    l2.pop()  # Removes the last item from the list
+    print(l2)  # Example output after pop
+
+    # remove method
+    l2.remove("banana")  # Removes the first occurrence of "banana"
+    print(l2)  # Example output after remove
+
+    # insert method
+    l2.insert(1, "orange")  # Inserts "orange" at index 1
+    print(l2)  # Example output after insert
+
+    # copy() method
+    l2_copy = l2.copy()  # Creates a shallow copy of the list
+    print(l2_copy)  # Example output of the copied list
+
     # clear() method
+    l2.clear()  # Removes all items from the list
+    print(l2)  # Example output after clear
 
 # ? lists comprehension
 sqr = [x**2 for x in range(1,11)]
