@@ -53,3 +53,6 @@ export default MyProfile
 //      </>
 //   )
 // };
+
+// ! layout file nam ka khel 
+// bascally agar appke folfer baut sare  routes hai aur main page.jsx vhi hai  but agar appko header navabr bol sakte hai sare route par same rakhna hai  jo folder vo main folder me yander hai to app main folder me yak layout.jsx file banakar yusme children ko props se leke return kardo aur additonal vo layout par likh sakte ho jo jara children componenets par show ho okay 
