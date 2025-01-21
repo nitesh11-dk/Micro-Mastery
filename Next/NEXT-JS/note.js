@@ -34,7 +34,22 @@ export default MyProfile
 
 //  ! catch all route [...name] optional rakhna hai to [[...name]]
 
-
 // ?  Error: You cannot use both an required and optional catch-all route at the same level ("[...posts]" and "[[...posts]]" ). 
 // ? qkii vo cahae ne jab jara hai to same lvel ho ho jara  hai then error milra hai 
 
+//  ! Parallel routes  or conditional route render @ se folder na nam start hote hai 
+//  * to define a slot we  use @ symbol 
+//  yaha par appko conditional rendering ke liye code layout me likhana hota hai q kii pa yusko waha par hii access kar sakte ho 
+
+// export default function ColorBoxLayout({children,left , right}){
+//   const isright = true ;
+  
+//   return (
+//      <>
+//       {children}
+//       {/* {left}
+//       {right} */}
+//       {isright ? right : left}
+//      </>
+//   )
+// };
