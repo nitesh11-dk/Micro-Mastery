@@ -56,3 +56,45 @@ export default MyProfile
 
 // ! layout file nam ka khel 
 // bascally agar appke folfer baut sare  routes hai aur main page.jsx vhi hai  but agar appko header navabr bol sakte hai sare route par same rakhna hai  jo folder vo main folder me yander hai to app main folder me yak layout.jsx file banakar yusme children ko props se leke return kardo aur additonal vo layout par likh sakte ho jo jara children componenets par show ho okay 
+
+
+//  ? LInkding stuff 
+//  ? normally react jese hii hai but next se ayta hai , aur same as page relaod na hota hai 
+import Link from "next/link"
+export const LearnLink = () => {
+    const id = 2 ;
+  return (
+    <div>
+  <Link href={'/admin/dashboard'}>Go to admin Dashborad</Link> <br />
+  <Link href={`/user/profile/${id}`}>Go to user profile </Link>
+  {/* ? dynamic */}
+    </div>
+  )
+}
+
+// * Programaticlly navigate 
+//  we can use userouter hook 
+// but to use that we should first have too make out component as a client componenet 
+
+'use client'
+import Link from "next/link"
+import { useRouter } from "next/navigation";
+
+
+export const LearnLink = () => {
+    const router  = useRouter();
+    const id = 2 ;
+    console.log(router)
+    if(true){
+        router.push("/admin/profile")
+    }
+  return (
+    <div>
+  <Link href={'/admin/dashboard'}>Go to admin Dashborad</Link> <br />
+  <Link href={`/user/profile/${id}`}>Go to user profile </Link>
+  {/* ? dynamic */}
+
+
+    </div>
+  )
+}

@@ -1,7 +1,7 @@
-import React from "react";
+import { LearnLink } from "@/components/LearnLink";
 
 const page = () => {
-  return <div>hello</div>;
+  return <div><LearnLink></LearnLink></div>;
 };
 
 export default page;
