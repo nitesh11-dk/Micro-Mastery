@@ -76,25 +76,29 @@ export const LearnLink = () => {
 //  we can use userouter hook 
 // but to use that we should first have too make out component as a client componenet 
 
-'use client'
-import Link from "next/link"
-import { useRouter } from "next/navigation";
+// 'use client'
+// import Link from "next/link"
+// import { useRouter } from "next/navigation";
 
 
-export const LearnLink = () => {
-    const router  = useRouter();
-    const id = 2 ;
-    console.log(router)
-    if(true){
-        router.push("/admin/profile")
-    }
-  return (
-    <div>
-  <Link href={'/admin/dashboard'}>Go to admin Dashborad</Link> <br />
-  <Link href={`/user/profile/${id}`}>Go to user profile </Link>
-  {/* ? dynamic */}
+// export const LearnLink = () => {
+//     const router  = useRouter();
+//     const id = 2 ;
+//     console.log(router)
+//     if(true){
+//         router.push("/admin/profile")
+//     }
+//   return (
+//     <div>
+//   <Link href={'/admin/dashboard'}>Go to admin Dashborad</Link> <br />
+//   <Link href={`/user/profile/${id}`}>Go to user profile </Link>
+//   {/* ? dynamic */}
 
 
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
+
+
+// ! Server component vs Client component 
+
