@@ -1,104 +1,84 @@
-// In page.jsx, we shouldn't use named exports, only default exports are allowed for jsx only .
+// Next.js is a powerful React framework that enables developers to build server-rendered applications with ease. It offers features like automatic code splitting, optimized performance, and a file-based routing system, making it a preferred choice for many developers. Next.js enhances the development experience by providing built-in support for static site generation (SSG) and server-side rendering (SSR), which can lead to better SEO and faster load times compared to traditional client-side rendered applications.
 
-// If we create a layout inside a folder, it will be visible to all the children of that folder. And if the layout does not return its children, then nothing will be shown.
-// +++++++++++++++++++
-// export const app = 23; // if will work but jo main jsx ka copment hai vo deafult edport hona chhaiye 
+// File Structure:
+// src/
+// └── app/
+//     ├── courses/
+//     │   └── java/
+//     │       └── page.jsx
+//     ├── admin/
+//     │   └── dashboard.jsx
+//     └── user/
+//         └── profile/
+//             └── [id].jsx
 
-// const MyProfile = () => {
-    //   return (
-        //     <div>page</div>
-        //   )
-        // }
-// export default MyProfile
-        // +++++++++++++++++++
+// In page.jsx, we shouldn't use named exports; only default exports are allowed for JSX files.
 
-// !  Route group means a folder inside the app folder. ()
-//? For example, if you have a file `src/app/courses/java/page.jsx`, and you want the route to be `/java` instead of `/courses/java`, you can wrap the `(courses)` folder in a route group by adding parentheses around it.
+// If we create a layout inside a folder, it will be visible to all the children of that folder. If the layout does not return its children, then nothing will be shown.
 
-// *  day - 2 
+// ! Route group means a folder inside the app folder.
+// ? For example, if you have a file `src/app/courses/java/page.jsx`, and you want the route to be `/java` instead of `/courses/java`, you can wrap the `(courses)` folder in a route group by adding parentheses around it.
 
-// !  Dynamic route  []
-export const app = 23; // if will work but jo main jsx ka copment hai vo deafult edport hona chhaiye 
-
-const MyProfile = async ({params}) => {
+// ! Dynamic route []
+const MyProfile = async ({ params }) => {
   let id = await params.id;
- console.log(id);
+  console.log(id);
   return (
     <div>{id}</div>
-  )
-}
+  );
+};
 
-export default MyProfile
-// ?  yaha par tutorial me async await use nahi kiya hai syd next update me  change huya  hoga 
+export default MyProfile;
 
+// ? Note: The tutorial may not have used async/await, but it might have changed in the latest Next.js updates.
 
-//  ! catch all route [...name] optional rakhna hai to [[...name]]
+// ! Catch-all route [...name] should be optional to use [[...name]]
 
-// ?  Error: You cannot use both an required and optional catch-all route at the same level ("[...posts]" and "[[...posts]]" ). 
-// ? qkii vo cahae ne jab jara hai to same lvel ho ho jara  hai then error milra hai 
+// ? Error: You cannot use both a required and optional catch-all route at the same level ("[...posts]" and "[[...posts]]"). 
+// ? This error occurs when both routes are defined at the same level.
 
-//  ! Parallel routes  or conditional route render @ se folder na nam start hote hai 
-//  * to define a slot we  use @ symbol 
-//  yaha par appko conditional rendering ke liye code layout me likhana hota hai q kii pa yusko waha par hii access kar sakte ho 
+// ! Parallel routes or conditional route rendering start with the @ symbol.
+// * To define a slot, we use the @ symbol.
+// Conditional rendering code should be written in the layout since it can only be accessed there.
 
-// export default function ColorBoxLayout({children,left , right}){
-//   const isright = true ;
-  
-//   return (
-//      <>
-//       {children}
-//       {/* {left}
-//       {right} */}
-//       {isright ? right : left}
-//      </>
-//   )
-// };
+// ! Layout file naming convention
+// If your folder has many routes and the main page.jsx is the same, but you want to keep the header/navigation consistent across all routes, create a layout.jsx file in the main folder. Pass the children as props and return them, along with any additional layout elements you want to show across child components.
 
-// ! layout file nam ka khel 
-// bascally agar appke folfer baut sare  routes hai aur main page.jsx vhi hai  but agar appko header navabr bol sakte hai sare route par same rakhna hai  jo folder vo main folder me yander hai to app main folder me yak layout.jsx file banakar yusme children ko props se leke return kardo aur additonal vo layout par likh sakte ho jo jara children componenets par show ho okay 
+// ? Linking stuff
+// ? Next.js routing works similarly to React, but it does not cause a full page reload.
+import Link from "next/link";
 
-
-//  ? LInkding stuff 
-//  ? normally react jese hii hai but next se ayta hai , aur same as page relaod na hota hai 
-import Link from "next/link"
 export const LearnLink = () => {
-    const id = 2 ;
+  const id = 2;
   return (
     <div>
-  <Link href={'/admin/dashboard'}>Go to admin Dashborad</Link> <br />
-  <Link href={`/user/profile/${id}`}>Go to user profile </Link>
-  {/* ? dynamic */}
+      <Link href={'/admin/dashboard'}>Go to Admin Dashboard</Link> <br />
+      <Link href={`/user/profile/${id}`}>Go to User Profile</Link>
+      {/* ? dynamic */}
     </div>
-  )
-}
+  );
+};
 
-// * Programaticlly navigate 
-//  we can use userouter hook 
-// but to use that we should first have too make out component as a client componenet 
+// * Programmatically navigate
+// We can use the useRouter hook, but to use that, we must first make our component a client component.
 
 // 'use client'
-// import Link from "next/link"
+// import Link from "next/link";
 // import { useRouter } from "next/navigation";
 
-
 // export const LearnLink = () => {
-//     const router  = useRouter();
-//     const id = 2 ;
-//     console.log(router)
-//     if(true){
-//         router.push("/admin/profile")
+//     const router = useRouter();
+//     const id = 2;
+//     console.log(router);
+//     if (true) {
+//         router.push("/admin/profile");
 //     }
-//   return (
-//     <div>
-//   <Link href={'/admin/dashboard'}>Go to admin Dashborad</Link> <br />
-//   <Link href={`/user/profile/${id}`}>Go to user profile </Link>
-//   {/* ? dynamic */}
+//     return (
+//         <div>
+//             <Link href={'/admin/dashboard'}>Go to Admin Dashboard</Link> <br />
+//             <Link href={`/user/profile/${id}`}>Go to User Profile</Link>
+//         </div>
+//     );
+// };
 
-
-//     </div>
-//   )
-// }
-
-
-// ! Server component vs Client component 
-
+// ! Server component vs Client component
