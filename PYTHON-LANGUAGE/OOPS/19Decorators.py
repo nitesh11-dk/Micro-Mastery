@@ -1,5 +1,5 @@
 
-# Higher order COnceot ka functionatity hai 
+# Higher order Function  ka functionatity hai 
 
 
 
