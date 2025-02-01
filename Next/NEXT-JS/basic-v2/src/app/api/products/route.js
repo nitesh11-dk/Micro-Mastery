@@ -1,7 +1,4 @@
-
-// ?  Backend started 
-
-// import Head from "next/head"
+import Head from "next/head"
 import { NextResponse } from "next/server"
 
 export async function GET(req){
@@ -34,6 +31,3 @@ console.log(formData.get('name')) // you will get the res
     
     return NextResponse.json({message:"hello kese ho post method "},{status:201})
 } 
-
-//  ! Dynamic routing 
-// [proternameyouwnat] , that  will the folder name for that 
