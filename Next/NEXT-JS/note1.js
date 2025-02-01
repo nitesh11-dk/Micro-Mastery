@@ -33,13 +33,30 @@ export default MyProfile;
 // ? Note: The tutorial may not have used async/await, but it might have changed in the latest Next.js updates.
 
 // ! Catch-all route [...name] should be optional to use [[...name]]
-
+  // ?catch all route hoga [...name]  samjo name/anything se tumhe vo pge milra hai , but , agr tum ahhcto muje name vhi nahai likha like / se hi vo pgae aja  jAYE  to u use [[...name]] and there this is catach all route but optional 
 // ? Error: You cannot use both a required and optional catch-all route at the same level ("[...posts]" and "[[...posts]]"). 
 // ? This error occurs when both routes are defined at the same level.
 
 // ! Parallel routes or conditional route rendering start with the @ symbol.
 // * To define a slot, we use the @ symbol.
-// Conditional rendering code should be written in the layout since it can only be accessed there.
+//  Conditional rendering code should be written in the layout since it can only be accessed there.
+//*  --- colorbox 
+//*  -------@left   -page.js
+//*  -------@right   -page.js
+//*  ---layout.js in the folder you can acces the left and  right 
+
+export default function ColorBoxLayout({children,left , right}){
+  const isright = true ;
+  return (
+     <>
+      {children}
+      {/* {left}
+      {right} */}
+      {isright ? right : left}
+     </>
+  )
+};
+
 
 // ! Layout file naming convention
 // If your folder has many routes and the main page.jsx is the same, but you want to keep the header/navigation consistent across all routes, create a layout.jsx file in the main folder. Pass the children as props and return them, along with any additional layout elements you want to show across child components.
@@ -82,3 +99,21 @@ export const LearnLink = () => {
 // };
 
 // ! Server component vs Client component
+//  ! Styling
+// ? global css and tialwind css 
+//  ? module css 
+// filename.module.css likha comp 
+// cannt use - in module css _ 
+// import styles from '../css/abc.module.css'
+<h3 className={styles.bg_11}>Try us ing css modules</h3>
+
+// ! To use Images 
+import Image from 'next/image'
+import Myimg from '../../public/images/11.png'
+<Image src={Myimg}width={200}></Image> // this is more optimized and has more feartures and properlty provides from nextjs 
+// it also works like this 
+//?  <img src="/images/11.png" alt="" /> 
+
+
+//  ! Data Fetching 
+
