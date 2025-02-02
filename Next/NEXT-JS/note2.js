@@ -37,3 +37,6 @@ console.log(formData.get('name')) // you will get the res
 
 //  ! Dynamic routing 
 // [proternameyouwnat] , that  will the folder name for that 
+
+//! Api hitting 
+//  If we're hitting any 3rd party api so instead of writing in front end we can try it in our bracket route .js folder so the third party api key then the password will be secure due to we are writing in our backend and then we are sending that back end in our front end by creating a api
