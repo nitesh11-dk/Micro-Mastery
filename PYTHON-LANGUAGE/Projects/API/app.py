@@ -17,4 +17,11 @@ print(userdata['username'])
 if True:
  print("KAISEN BAA ??")
 else:
+    # raise Exception("faild to fetch error ")
     raise Exception("faild to fetch error ")
+
+try:
+    print("kese ho")   
+except Exception as e:#!!!! 
+   print(e)   
+
