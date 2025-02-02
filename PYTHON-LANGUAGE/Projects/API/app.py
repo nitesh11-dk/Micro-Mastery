@@ -10,5 +10,11 @@ url ="https://api.freeapi.app/api/v1/public/randomusers/user/random"
 headers = {"accept": "application/json"}
 
 response = requests.get(url, headers=headers)
+response = response.json()
+userdata = response['data']['login']
+print(userdata['username'])
 
-print(response.json())
+if True:
+ print("KAISEN BAA ??")
+else:
+    raise Exception("faild to fetch error ")
