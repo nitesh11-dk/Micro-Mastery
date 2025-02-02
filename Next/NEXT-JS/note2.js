@@ -46,7 +46,7 @@ console.log(formData.get('name')) // you will get the res
 //  * server actions 
 // ? yiske hum direct component me hii connectdb call akr ke query mar lete hai aur  vo data ko show kar dete hai , aur php me vhi wese hi hota hai  
 
-//  but to use server actions in our copmpnent the compnent should be server component  the server actions doesn;t work in client compoennet , and if cannot use react hooks  there 
+//  but to use server actions in our copmpnent the compnent should be server component  the server actions doesn;t work in client compoennet , and we cannot use react hooks  there 
 
 
 //  server actions as a post method 
@@ -78,4 +78,23 @@ const PostData = async () => {
   };
   
   export default PostData;
+  
+
+  //  ! Meta Data change
+   
+  export const metadata = {
+    title:"Bolg posts",
+    description:"This is blog posts"
+  }
+  //  yisko  hum then har tak different route ke liye different rakh satke hai   , but imp is that the name of the  object should be metadata
+
+
+
+  //  ? To learn 
+  //  middlwware 
+  //  loading js 
+  //  error js 
+  //  note-found js 
+  //  temnplate js 
+  //  meta data files 
   
