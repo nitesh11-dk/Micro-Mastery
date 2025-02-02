@@ -17,6 +17,7 @@ for i in range(1,n+1):
 sum = n // 2 * (n // 2 + 1) # sum of n even numbers 
 # print(sum)
 
+
 # ? 3 
 # number = 3
 # for i in range(1,11):
