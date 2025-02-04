@@ -26,7 +26,6 @@ pip list > requirement.txt
 ⚠️ _This method is not valid for generating `requirements.txt`. Use the correct method below._
 
 ### **4. Correct Way to Generate `requirements.txt`**
-
 ```bash
 pip freeze > requirements.txt
 ```
